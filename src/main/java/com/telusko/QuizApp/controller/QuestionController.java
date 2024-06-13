@@ -36,4 +36,10 @@ public class QuestionController {
     public String addquestion(@RequestBody Question question) {
        return  questionService.addQuestion(question);
     }
+    //deleting a question
+    @DeleteMapping("delete")
+    public String deleteQuestion(@RequestBody Question question ) {
+        return questionService.deleteQuestion(question);
+    }
+
 }
