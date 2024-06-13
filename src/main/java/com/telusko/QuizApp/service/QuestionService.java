@@ -5,6 +5,7 @@ import com.telusko.QuizApp.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class QuestionService {
@@ -32,4 +33,20 @@ public class QuestionService {
         questionDao.delete(question);
         return "Question deleted successfully";
     }
+
+    public String updateQuestion(Question updatedQuestion) {
+        Optional<Question> existingQuestion = questionDao.findById(updatedQuestion.getId());
+        if (existingQuestion.isPresent()) {
+            Question question = existingQuestion.get();
+            question.setCategory(updatedQuestion.getCategory())             ;
+            question.setDifficultyLevel(updatedQuestion.getDifficultyLevel());
+
+            // update other fields as needed
+            questionDao.save(question);
+            return "Question updated successfully";
+        } else {
+            return "Question not found";
+        }
+    }
+
 }

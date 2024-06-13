@@ -42,4 +42,10 @@ public class QuestionController {
         return questionService.deleteQuestion(question);
     }
 
+    //updating a question
+    @PutMapping("update")
+    public String updateQuestion(@RequestBody Question question) {
+        return questionService.updateQuestion(question);
+    }
+
 }
