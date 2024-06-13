@@ -4,6 +4,7 @@ import com.telusko.QuizApp.Dao.QuestionDao;
 import com.telusko.QuizApp.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -20,7 +21,11 @@ public class QuestionService {
     public List<Question> getQuestionsByCategory(String category) {
         return questionDao.findByCategory(category);
     }
-public List<Question> getQustionsBydfficultylevel(String dfficultylevel)  {
-    return questionDao.findByDifficultyLevel( dfficultylevel);
+    public List<Question> getQustionsBydfficultylevel(String dfficultylevel)  {
+         return questionDao.findByDifficultyLevel( dfficultylevel);
+}
+    public String addQuestion(@RequestBody Question question) {
+        questionDao.save(question);
+        return "success";
 }
 }

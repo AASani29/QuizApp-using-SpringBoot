@@ -3,10 +3,7 @@ package com.telusko.QuizApp.controller;
 import com.telusko.QuizApp.Question;
 import com.telusko.QuizApp.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,5 +29,11 @@ public class QuestionController {
     @GetMapping("difficultylevel/{difficultylevel}")
     public List<Question> getQuestionsBydifficultylevel(@PathVariable String difficultylevel) {
         return questionService.getQustionsBydfficultylevel(difficultylevel);
+    }
+
+    //adding a question
+    @PostMapping("add")
+    public String addquestion(@RequestBody Question question) {
+       return  questionService.addQuestion(question);
     }
 }

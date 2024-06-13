@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
 
