@@ -3,6 +3,7 @@ package com.telusko.QuizApp.controller;
 import com.telusko.QuizApp.Question;
 import com.telusko.QuizApp.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class QuestionController {
     QuestionService questionService;
 
     @GetMapping("allQuestions")
-    public List<Question> getAllQuestions() {
+    public ResponseEntity<List<Question>> getAllQuestions() {
         return questionService.getAllQuestions();
 
 
@@ -22,7 +23,7 @@ public class QuestionController {
 
 
     @GetMapping("category/{category}")
-    public List<Question> getQuestionsByCategory(@PathVariable String category) {
+    public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category) {
         return questionService.getQuestionsByCategory(category);
     }
 
@@ -33,7 +34,7 @@ public class QuestionController {
 
     //adding a question
     @PostMapping("add")
-    public String addquestion(@RequestBody Question question) {
+    public ResponseEntity<String> addquestion(@RequestBody Question question) {
        return  questionService.addQuestion(question);
     }
     //deleting a question
