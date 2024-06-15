@@ -1,6 +1,6 @@
 package com.telusko.QuizApp.controller;
 
-import com.telusko.QuizApp.Question;
+import com.telusko.QuizApp.model.Question;
 import com.telusko.QuizApp.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

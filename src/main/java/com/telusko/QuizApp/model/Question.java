@@ -1,11 +1,10 @@
-package com.telusko.QuizApp;
+package com.telusko.QuizApp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Data
 @Entity
